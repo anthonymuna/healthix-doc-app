@@ -1,0 +1,60 @@
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href='{% static "login.css" %}' rel="stylesheet">
+
+<div class="wrapper">
+    <form method='post' action="" class="form-signin">{% csrf_token %}
+        <h2 class="form-signin-heading">Please login</h2>
+        <legend>Patient Details</legend>
+        <input type="text" class="form-control" name="firstname" placeholder="First Name" required autofocus/>
+        <br>
+        <input type="text" class="form-control" name="lastname" placeholder="Last Name" required autofocus/>
+        <br>
+        <input type="text" class="form-control" name="middlename" placeholder="Middle Name" autofocus/>
+        <br>
+        <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus=""/>
+        <br>
+        <input type="number" class="form-control" name="mobilenumber" placeholder="Mobile Number" required autofocus/>
+        <br>
+        <input type="date" name="dateofbirth" autofocus>
+        <br>
+        <legend>Insurance Section</legend>
+        <select>
+            <option value="insurance1">Insurance 1</option>
+            <option value="insurance2">Insurance 2</option>
+            <option value="insurance3">Insurance 3</option>
+            <option value="insurance4">Insurance 4</option>
+        </select>
+        <legend>Diagnosis</legend>
+        <div>{{ diagnosis }}</div>
+        <legend>Visit Type</legend>
+        <input type="checkbox" name="inpatient" value="inpatient"> In Patient<br>
+        <input type="checkbox" name="outpatient" value="outpatient"> Out Patient<br>
+        <legend>Date</legend>
+        <div>{{date}}</div>
+        <legend>Tests</legend>
+        <label>Specimen</label>
+        <select>
+            <option value="specimen1">Specimen 1</option>
+            <option value="specimen2">Specimen 2</option>
+            <option value="specimen3">Specimen 3</option>
+            <option value="specimen4">Specimen 4</option>
+        </select>
+        <label>Lab test</label>
+        <p>Upload</p>{{form}}
+        <select>
+            <option value="specimen1">Specimen 1</option>
+        </select>
+        <label>days</label>
+        <select>
+            <option value="specimen1">1</option>
+            <option value="specimen2">2</option>
+            <option value="specimen3">3</option>
+            <option value="specimen4">4</option>
+        </select>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <br>
+        <div>{{results}}
+    </form>
+</div>
